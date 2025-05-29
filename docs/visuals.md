@@ -12,7 +12,7 @@ This page displays generated plots and visualizations of the warp-bubble shape p
 
 The following plot shows the two main warp-bubble shape profiles implemented in this catalog:
 
-![Warp-Bubble Profiles]({{ site.baseurl }}/assets/images/profiles.png "Comparison of Alcubierre and Natário warp-bubble shape profiles")
+<img src="assets/images/profiles.png" alt="Comparison of Alcubierre and Natário warp-bubble shape profiles" title="Warp-Bubble Shape Profiles" style="max-width: 100%; height: auto;" />
 
 *Figure 1: Comparison of Alcubierre and Natário warp-bubble shape profiles. The Alcubierre profile (R=1, σ=10) shows a localized peak around r=1, while the Natário Gaussian (α=1) exhibits a central peak at r=0 with exponential decay.*
 

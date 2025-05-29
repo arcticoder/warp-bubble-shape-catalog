@@ -21,6 +21,11 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
+# Include assets
+include:
+  - assets/
+  - assets/images/
+
 # Navigation
 header_pages:
   - index.md
