@@ -4,15 +4,22 @@ Plot warp-bubble shape functions (Alcubierre, Natário) for visualization.
 """
 import numpy as np
 import matplotlib
-# Try different backends for interactive display
-try:
-    matplotlib.use('Qt5Agg')  # Try Qt backend first
-except ImportError:
-    try:
-        matplotlib.use('TkAgg')  # Fall back to Tk
-    except ImportError:
-        # Use default backend if neither works
-        pass
+import sys
+
+# Set backend based on whether interactive display is needed
+if __name__ == '__main__':
+    if len(sys.argv) > 1 and ('--save-only' in sys.argv or '-s' in sys.argv):
+        matplotlib.use('Agg')  # Non-interactive backend for save-only mode
+    else:
+        # Try different backends for interactive display
+        try:
+            matplotlib.use('Qt5Agg')  # Try Qt backend first
+        except ImportError:
+            try:
+                matplotlib.use('TkAgg')  # Fall back to Tk
+            except ImportError:
+                matplotlib.use('Agg')  # Use non-interactive as last resort
+
 import matplotlib.pyplot as plt
 
 def alcubierre_profile(r, R=1.0, sigma=10.0):
@@ -37,9 +44,15 @@ def plot_profiles(r_max=3.0, num=500, save_plot=True, show_plot=False):
     
     if save_plot:
         import os
+        # Save to data/plots for LaTeX document
         os.makedirs('../data/plots', exist_ok=True)
         plt.savefig('../data/plots/profiles.png', dpi=300, bbox_inches='tight')
         print("Plot saved to data/plots/profiles.png")
+        
+        # Also save to docs/assets/images for Jekyll site
+        os.makedirs('../docs/assets/images', exist_ok=True)
+        plt.savefig('../docs/assets/images/profiles.png', dpi=300, bbox_inches='tight')
+        print("Plot also saved to docs/assets/images/profiles.png")
     
     if show_plot:
         plt.show()

@@ -71,9 +71,11 @@ The interactive display uses matplotlib backends (Qt5Agg or TkAgg) and allows yo
 - Export the plot in different formats through the matplotlib interface
 
 ### Output
-- **File**: `data/plots/profiles.png`
+- **Files**: 
+  - `data/plots/profiles.png` (for LaTeX document inclusion)
+  - `docs/assets/images/profiles.png` (for Jekyll site display)
 - **Format**: High-resolution PNG (300 DPI)
-- **Size**: Optimized for inclusion in documents
+- **Size**: Optimized for inclusion in documents and web display
 
 ---
 

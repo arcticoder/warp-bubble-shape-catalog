@@ -1,4 +1,32 @@
-# warp-- `warp_bubble_shape_catalog.tex`  
+# Warp-Bubble Shape Catalog
+
+**Catalog of candidate warp‐bubble shape functions**
+
+*Created: May 29, 2025*
+
+This repository collects the defining formulas, support sizes, and key free parameters for a variety of warp‐bubble "shape" profiles (e.g. Alcubierre's tanh‐based profile, Natário's smooth Gaussian variant, and others).
+
+## Overview
+
+This catalog serves as a reference repository documenting various mathematical functions used to define warp-bubble geometries in theoretical physics. Each profile is characterized by:
+
+- **Defining Formula**: The mathematical expression that describes the shape function
+- **Support Size**: The spatial extent over which the function is non-negligible
+- **Free Parameters**: Adjustable parameters that control the shape characteristics
+
+## Documentation
+
+A comprehensive Jekyll documentation site is available at:  
+**https://arcticoder.github.io/warp-bubble-shape-catalog/**
+
+The documentation includes:
+- **[Profiles](https://arcticoder.github.io/warp-bubble-shape-catalog/profiles.html)**: Detailed mathematical descriptions of each warp-bubble shape function
+- **[Scripts](https://arcticoder.github.io/warp-bubble-shape-catalog/scripts.html)**: Complete documentation of all Python utilities with usage examples
+- **[Visuals](https://arcticoder.github.io/warp-bubble-shape-catalog/visuals.html)**: Generated plots and visualizations of the profile functions
+
+## Contents
+
+- `warp_bubble_shape_catalog.tex`  
   LaTeX source with each shape function's formula, a note on support size, and free parameters.
 - `scripts/`  
   Python scripts for plotting profiles, generating numeric data, computing support sizes, and exporting CSV.
@@ -7,31 +35,23 @@
 - `docs/`  
   Jekyll documentation site with detailed mathematical descriptions, script documentation, and visualizations.
 
-## Documentation
+## Purpose
 
-A comprehensive Jekyll documentation site is available at:  
-**https://arcticoder.github.io/warp-bubble-shape-catalog/**
+This catalog is designed as a dependency for downstream projects that will specify:
 
-The documentation includes:
-- **Profiles**: Detailed mathematical descriptions of each warp-bubble shape function
-- **Scripts**: Complete documentation of all Python utilities with usage examples
-- **Visuals**: Generated plots and visualizations of the profile functions
+- Coordinate system choices (e.g., spherical coordinates $(t,r,\theta,\phi)$)
+- Symmetry assumptions (e.g., axial symmetry about the $z$–axis, compact support in $r$)
+- Metric ansatz simplifications
 
-*Created: May 29, 2025*
+## Data Availability
 
-## Scriptsshape-catalog
+Numeric data for all profiles is available in multiple formats:
 
-**Catalog of candidate warp‐bubble shape functions**  
-This repository collects the defining formulas, support sizes, and key free parameters for a variety of warp‐bubble “shape” profiles (e.g. Alcubierre’s tanh‐based profile, Natário’s smooth Gaussian variant, …).
+- **NumPy format**: `data/profiles.npz` (compressed binary)
+- **CSV format**: `data/profile_data.csv` (human-readable)
 
-## Contents
+These datasets contain discretized $(r, f(r))$ values for each profile function, generated using the provided Python scripts.
 
-- `warp_bubble_shape_catalog.tex`  
-  LaTeX source with each shape function’s formula, a note on support size, and free parameters.
-- `scripts/`  
-  Python scripts for plotting profiles, generating numeric data, computing support sizes, and exporting CSV.
-- `data/`  
-  Supporting data or plots illustrating each profile.
 ## Scripts
 
 All Python scripts reside in the `scripts/` folder:
@@ -64,7 +84,11 @@ All Python scripts reside in the `scripts/` folder:
    python scripts/plot_profiles.py --both
    python scripts/plot_profiles.py -b
    ```
-   The interactive display allows you to zoom, pan, and explore the plot data. Saved plots go to `data/plots/profiles.png` in high-resolution PNG format (300 DPI).
+   The interactive display allows you to zoom, pan, and explore the plot data. Saved plots go to:
+   - `data/plots/profiles.png` (for LaTeX document inclusion)
+   - `docs/assets/images/profiles.png` (for Jekyll site display)
+   
+   Both files are saved in high-resolution PNG format (300 DPI).
 
 2. **Generate numeric data**  
    ```bash
@@ -95,6 +119,31 @@ Install dependencies:
 pip install numpy matplotlib
 ```
 
+## Repository Structure
+
+```
+warp-bubble-shape-catalog/
+├── warp_bubble_shape_catalog.tex     # LaTeX source document
+├── data/                             # Generated data and plots
+│   ├── profiles.npz                  # Binary profile data
+│   ├── profile_data.csv              # CSV profile data
+│   └── plots/
+│       └── profiles.png              # Generated visualization
+├── scripts/                          # Python utilities
+│   ├── plot_profiles.py              # Plotting and visualization
+│   ├── generate_profile_data.py      # Data generation
+│   ├── compute_support_size.py       # Support analysis
+│   └── export_profiles_csv.py        # CSV export
+└── docs/                             # Jekyll documentation site
+    ├── _config.yml                   # Jekyll configuration
+    ├── index.md                      # Documentation home
+    ├── profiles.md                   # Profile descriptions
+    ├── scripts.md                    # Script documentation
+    ├── visuals.md                    # Visualization gallery
+    └── assets/images/                # Site images
+        └── profiles.png              # Copy for web display
+```
+
 ## Common Workflow
 
 1. **Generate all data and visualizations:**
@@ -112,7 +161,8 @@ pip install numpy matplotlib
 3. **Verify output files:**
    - `data/profiles.npz` (binary data)
    - `data/profile_data.csv` (CSV data)  
-   - `data/plots/profiles.png` (visualization)
+   - `data/plots/profiles.png` (visualization for LaTeX)
+   - `docs/assets/images/profiles.png` (visualization for Jekyll site)
 
 ## Building the LaTeX Catalog
 
@@ -122,10 +172,6 @@ After cloning the repo, build the PDF:
 pdflatex warp_bubble_shape_catalog.tex
 ```
 
-## Dependency
+## License
 
-This catalog is a dependency for the next repository, which will specify the coordinate system and symmetry assumptions for the metric ansatz:
-
-> “A specification of the chosen coordinate system (e.g. spherical coordinates $(t,r,\theta,\phi)$) plus the symmetry assumptions (e.g. axial symmetry about the $z$–axis, compact support in $r$) that simplify the metric ansatz.”
-
-Include this repo as a submodule or reference in your downstream project’s documentation.
+This project is in the public domain. Feel free to use, modify, and distribute as needed for research and educational purposes.
