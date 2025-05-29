@@ -3,8 +3,8 @@ title: "Warp-Bubble Shape Catalog"
 description: "Catalog of candidate warp‐bubble shape functions"
 author: "Arcticoder"
 email: ""
-baseurl: ""
-url: ""
+baseurl: "/warp-bubble-shape-catalog"
+url: "https://arcticoder.github.io"
 
 # Build settings
 markdown: kramdown
