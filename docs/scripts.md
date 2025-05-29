@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Scripts Documentation
+date: 2025-05-29
 ---
 
 # Python Scripts
@@ -26,11 +27,24 @@ The `scripts/` folder contains Python utilities for computation, visualization, 
 - Plots multiple profiles on the same axes for comparison
 - Configurable plot parameters (range, resolution, styling)
 - Automatic plot saving with high DPI for publications
-- Optional interactive display
+- **Optional interactive display**: Use command-line flags to control whether plots are displayed interactively, saved to file, or both
 
 ### Usage
 ```bash
+# Default: Interactive display + save plot
 python scripts/plot_profiles.py
+
+# Interactive display only (no file saved)
+python scripts/plot_profiles.py --interactive
+python scripts/plot_profiles.py -i
+
+# Save plot only (no interactive display)
+python scripts/plot_profiles.py --save-only
+python scripts/plot_profiles.py -s
+
+# Both interactive display and save plot
+python scripts/plot_profiles.py --both
+python scripts/plot_profiles.py -b
 ```
 
 ### Functions
@@ -43,6 +57,18 @@ python scripts/plot_profiles.py
 - **Resolution**: 500 points
 - **Alcubierre**: $R=1.0$, $\sigma=10.0$
 - **Natário**: $\alpha=1.0$
+
+### Interactive Display Options
+The script supports multiple display modes:
+- **Default**: Shows interactive plot window and saves to file
+- **Interactive only** (`-i`): Opens plot in interactive window for exploration (zoom, pan, etc.)
+- **Save only** (`-s`): Generates plot file without opening display window
+- **Both** (`-b`): Explicitly enables both interactive display and file saving
+
+The interactive display uses matplotlib backends (Qt5Agg or TkAgg) and allows you to:
+- Zoom and pan the plot
+- Examine specific data points
+- Export the plot in different formats through the matplotlib interface
 
 ### Output
 - **File**: `data/plots/profiles.png`

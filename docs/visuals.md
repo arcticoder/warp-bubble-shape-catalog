@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Visualizations
+date: 2025-05-29
 ---
 
 # Visualizations

@@ -3,6 +3,16 @@
 Plot warp-bubble shape functions (Alcubierre, Natário) for visualization.
 """
 import numpy as np
+import matplotlib
+# Try different backends for interactive display
+try:
+    matplotlib.use('Qt5Agg')  # Try Qt backend first
+except ImportError:
+    try:
+        matplotlib.use('TkAgg')  # Fall back to Tk
+    except ImportError:
+        # Use default backend if neither works
+        pass
 import matplotlib.pyplot as plt
 
 def alcubierre_profile(r, R=1.0, sigma=10.0):
@@ -35,4 +45,22 @@ def plot_profiles(r_max=3.0, num=500, save_plot=True, show_plot=False):
         plt.show()
 
 if __name__ == '__main__':
-    plot_profiles(show_plot=True)
+    import sys
+    
+    # Command line options
+    if len(sys.argv) > 1:
+        if '--interactive' in sys.argv or '-i' in sys.argv:
+            plot_profiles(show_plot=True, save_plot=False)
+        elif '--save-only' in sys.argv or '-s' in sys.argv:
+            plot_profiles(show_plot=False, save_plot=True)
+        elif '--both' in sys.argv or '-b' in sys.argv:
+            plot_profiles(show_plot=True, save_plot=True)
+        else:
+            print("Usage:")
+            print("  python plot_profiles.py           # Interactive + save (default)")
+            print("  python plot_profiles.py -i        # Interactive only")
+            print("  python plot_profiles.py -s        # Save only")
+            print("  python plot_profiles.py -b        # Both interactive + save")
+    else:
+        # Default: show interactively and save
+        plot_profiles(show_plot=True, save_plot=True)

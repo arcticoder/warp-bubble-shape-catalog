@@ -1,11 +1,14 @@
 ---
 layout: default
 title: Home
+date: 2025-05-29
 ---
 
 # Warp-Bubble Shape Catalog
 
 **Catalog of candidate warp‐bubble shape functions**
+
+*Created: May 29, 2025*
 
 This repository collects the defining formulas, support sizes, and key free parameters for a variety of warp‐bubble "shape" profiles (e.g. Alcubierre's tanh‐based profile, Natário's smooth Gaussian variant, and others).
 

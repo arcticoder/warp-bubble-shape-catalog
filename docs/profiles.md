@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Warp-Bubble Profiles
+date: 2025-05-29
 ---
 
 # Warp-Bubble Shape Profiles
