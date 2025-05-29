@@ -3,6 +3,9 @@
 Generate numeric data for warp-bubble profiles and save to NumPy files.
 """
 import numpy as np
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.plot_profiles import alcubierre_profile, nataro_gaussian
 
 def generate_data(r_max=3.0, num=500, output_dir='data'):

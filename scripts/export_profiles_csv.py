@@ -4,8 +4,10 @@ Export profile data to CSV for further analysis.
 """
 import numpy as np
 import csv
-from scripts.plot_profiles import alcubierre_profile, nataro_gaussian
+import sys
 import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from scripts.plot_profiles import alcubierre_profile, nataro_gaussian
 
 def export_csv(r_max=3.0, num=500, filename='profile_data.csv'):
     r = np.linspace(0, r_max, num)

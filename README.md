@@ -28,19 +28,19 @@ All Python scripts reside in the `scripts/` folder:
 
 1. **Plot profiles**  
    ```bash
-   python3 scripts/plot_profiles.py
+   python scripts/plot_profiles.py
    ```
 2. **Generate data**  
    ```bash
-   python3 scripts/generate_profile_data.py
+   python scripts/generate_profile_data.py
    ```
 3. **Compute support sizes**  
    ```bash
-   python3 scripts/compute_support_size.py
+   python scripts/compute_support_size.py
    ```
 4. **Export to CSV**  
    ```bash
-   python3 scripts/export_profiles_csv.py
+   python scripts/export_profiles_csv.py
    ```
 
 ## Building the LaTeX Catalog
