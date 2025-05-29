@@ -7,20 +7,49 @@ This repository collects the defining formulas, support sizes, and key free para
 
 - `warp_bubble_shape_catalog.tex`  
   LaTeX source with each shape function’s formula, a note on support size, and free parameters.
+- `scripts/`  
+  Python scripts for plotting profiles, generating numeric data, computing support sizes, and exporting CSV.
 - `data/`  
   Supporting data or plots illustrating each profile.
+## Scripts
 
-## Usage
+All Python scripts reside in the `scripts/` folder:
 
-1. Clone the repo:  
+- **plot_profiles.py**  
+  Plot warp-bubble shape functions (Alcubierre, Natário) for visualization.
+- **generate_profile_data.py**  
+  Generate numeric data for warp-bubble profiles and save to compressed NumPy files.
+- **compute_support_size.py**  
+  Estimate practical support sizes for profiles given a threshold.
+- **export_profiles_csv.py**  
+  Export profile data to CSV for further analysis.
+
+### Usage Examples
+
+1. **Plot profiles**  
    ```bash
-   git clone https://github.com/arcticoder/warp-bubble-shape-catalog.git
-   cd warp-bubble-shape-catalog
+   python3 scripts/plot_profiles.py
    ```
-2. Build the PDF:  
+2. **Generate data**  
    ```bash
-   pdflatex warp_bubble_shape_catalog.tex
+   python3 scripts/generate_profile_data.py
    ```
+3. **Compute support sizes**  
+   ```bash
+   python3 scripts/compute_support_size.py
+   ```
+4. **Export to CSV**  
+   ```bash
+   python3 scripts/export_profiles_csv.py
+   ```
+
+## Building the LaTeX Catalog
+
+After cloning the repo, build the PDF:
+
+```bash
+pdflatex warp_bubble_shape_catalog.tex
+```
 
 ## Dependency
 
