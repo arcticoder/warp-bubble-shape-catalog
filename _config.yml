@@ -1,0 +1,38 @@
+# Jekyll Configuration
+title: "Warp-Bubble Shape Catalog"
+description: "Catalog of candidate warp‐bubble shape functions"
+author: "Arcticoder"
+email: ""
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# MathJax support
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Navigation
+header_pages:
+  - index.md
+  - profiles.md
+  - scripts.md
+  - visuals.md
+
+# Exclude files
+exclude:
+  - scripts/
+  - data/
+  - warp_bubble_shape_catalog.*
+  - profile_data.csv
+  - README.md
+  - .gitignore
