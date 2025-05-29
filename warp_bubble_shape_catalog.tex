@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+
+\title{Catalog of Warp-Bubble Shape Functions}
+\author{Arcticoder}
+\date{May 26, 2025}
+
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+This document catalogs candidate warp-bubble shape functions, including their defining formula, support size, and free parameters.
+
+\section{Alcubierre Profile}
+\subsection*{Defining Formula}
+\[
+f(r) = \frac{\tanh\bigl(\sigma (r + R)\bigr) - \tanh\bigl(\sigma (r - R)\bigr)}{2\,\tanh(\sigma R)}
+\]
+\subsection*{Support Size}
+Compact support approximately within $r \in [R - \Delta,\, R + \Delta]$, where $\Delta$ depends on $\sigma$.
+\subsection*{Free Parameters}
+\begin{itemize}
+  \item $R$: bubble radius
+  \item $\sigma$: steepness parameter
+\end{itemize}
+
+\section{Natário Gaussian Variant}
+\subsection*{Defining Formula}
+\[
+f(r) = \exp\!\bigl(-r^2 / \alpha^2\bigr)
+\]
+\subsection*{Support Size}
+Effectively non-compact but decays rapidly; practical support up to $r \approx 3\alpha$.
+\subsection*{Free Parameters}
+\begin{itemize}
+  \item $\alpha$: width parameter
+\end{itemize}
+
+%% Add more sections for other profiles here
+
+\end{document}
