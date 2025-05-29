@@ -10,7 +10,7 @@ date: 2025-05-29
 
 *Created: May 29, 2025*
 
-This repository collects the defining formulas, support sizes, and key free parameters for a variety of warp‐bubble "shape" profiles (e.g. Alcubierre's tanh‐based profile, Natário's smooth Gaussian variant, and others).
+This repository collects the defining formulas, support sizes, and key free parameters for 2 warp‐bubble "shape" profiles, Alcubierre's tanh‐based profile and Natário's smooth Gaussian variant.
 
 ## Overview
 
