@@ -1,6 +1,6 @@
 # Jekyll Setup Instructions
 
-This repository has been converted from LaTeX to a Jekyll-based documentation site.
+This repository contains a Jekyll-based documentation site.
 
 ## Prerequisites
 
@@ -61,9 +61,7 @@ This Jekyll site can be deployed to:
 - **Vercel**: Deploy directly from Git
 - **Traditional hosting**: Upload the `_site/` folder contents
 
-## Original LaTeX
 
-The original LaTeX document (`warp_bubble_shape_catalog.tex`) and generated PDF are preserved in the repository for reference.
 
 ## Data and Scripts
 

@@ -26,8 +26,6 @@ The documentation includes:
 
 ## Contents
 
-- `warp_bubble_shape_catalog.tex`  
-  LaTeX source document with mathematical formulas, support size notes, and free parameters for each profile.
 - `scripts/`  
   Python scripts for plotting profiles, generating numeric data, computing support sizes, and exporting CSV.
 - `data/`  
@@ -122,7 +120,6 @@ pip install numpy matplotlib
 
 ```
 warp-bubble-shape-catalog/
-├── warp_bubble_shape_catalog.tex     # LaTeX source document
 ├── data/                             # Generated data and plots
 │   ├── profiles.npz                  # Binary profile data
 │   ├── profile_data.csv              # CSV profile data
@@ -163,15 +160,7 @@ warp-bubble-shape-catalog/
    - `data/plots/profiles.png` (high-resolution visualization)
    - `docs/assets/images/profiles.png` (visualization for Jekyll site)
 
-## Building the LaTeX Document
 
-The original LaTeX source document is preserved for reference. To build the PDF:
-
-```bash
-pdflatex warp_bubble_shape_catalog.tex
-```
-
-This generates `warp_bubble_shape_catalog.pdf` with the mathematical catalog in traditional document format.
 
 ## Troubleshooting
 
