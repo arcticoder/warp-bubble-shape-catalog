@@ -30,9 +30,10 @@ header_pages:
 
 # Exclude files
 exclude:
-  - scripts/
-  - data/
-  - warp_bubble_shape_catalog.*
-  - profile_data.csv
-  - README.md
-  - .gitignore
+  - ../scripts/
+  - ../data/
+  - ../warp_bubble_shape_catalog.*
+  - ../profile_data.csv
+  - ../README.md
+  - ../.gitignore
+  - JEKYLL_README.md
