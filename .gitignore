@@ -186,6 +186,9 @@ figures/
 *.eps
 *.svg
 
+# Exception: Allow images in Jekyll assets directory
+!docs/assets/images/*.png
+
 # Data files (depending on your preference)
 # Uncomment the following lines if you don't want to track generated data
 # *.csv
