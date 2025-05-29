@@ -11,7 +11,7 @@ def alcubierre_profile(r, R=1.0, sigma=10.0):
 def nataro_gaussian(r, alpha=1.0):
     return np.exp(-r**2 / alpha**2)
 
-def plot_profiles(r_max=3.0, num=500):
+def plot_profiles(r_max=3.0, num=500, save_plot=True, show_plot=False):
     r = np.linspace(0, r_max, num)
     profiles = {
         'Alcubierre (R=1, σ=10)': alcubierre_profile(r, R=1.0, sigma=10.0),
@@ -24,7 +24,15 @@ def plot_profiles(r_max=3.0, num=500):
     plt.title('Warp-Bubble Shape Functions')
     plt.legend()
     plt.grid(True)
-    plt.show()
+    
+    if save_plot:
+        import os
+        os.makedirs('../data/plots', exist_ok=True)
+        plt.savefig('../data/plots/profiles.png', dpi=300, bbox_inches='tight')
+        print("Plot saved to data/plots/profiles.png")
+    
+    if show_plot:
+        plt.show()
 
 if __name__ == '__main__':
-    plot_profiles()
+    plot_profiles(show_plot=True)

@@ -16,13 +16,13 @@ This repository collects the defining formulas, support sizes, and key free para
 All Python scripts reside in the `scripts/` folder:
 
 - **plot_profiles.py**  
-  Plot warp-bubble shape functions (Alcubierre, Natário) for visualization.
+  Plot warp-bubble shape functions (Alcubierre, Natário) for visualization. Saves plots to `data/plots/profiles.png`.
 - **generate_profile_data.py**  
   Generate numeric data for warp-bubble profiles and save to compressed NumPy files.
 - **compute_support_size.py**  
   Estimate practical support sizes for profiles given a threshold.
 - **export_profiles_csv.py**  
-  Export profile data to CSV for further analysis.
+  Export profile data to CSV in the `data/` folder for further analysis.
 
 ### Usage Examples
 
@@ -30,18 +30,23 @@ All Python scripts reside in the `scripts/` folder:
    ```bash
    python scripts/plot_profiles.py
    ```
+   This will save a plot to `data/plots/profiles.png` and display it interactively.
+
 2. **Generate data**  
    ```bash
    python scripts/generate_profile_data.py
    ```
+
 3. **Compute support sizes**  
    ```bash
    python scripts/compute_support_size.py
    ```
+
 4. **Export to CSV**  
    ```bash
    python scripts/export_profiles_csv.py
    ```
+   This will create `data/profile_data.csv`.
 
 ## Building the LaTeX Catalog
 

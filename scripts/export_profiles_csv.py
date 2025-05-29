@@ -9,7 +9,13 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.plot_profiles import alcubierre_profile, nataro_gaussian
 
-def export_csv(r_max=3.0, num=500, filename='profile_data.csv'):
+def export_csv(r_max=3.0, num=500, filename=None):
+    if filename is None:
+        filename = os.path.join('data', 'profile_data.csv')
+    
+    # Ensure data directory exists
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    
     r = np.linspace(0, r_max, num)
     data = {
         'r': r,
