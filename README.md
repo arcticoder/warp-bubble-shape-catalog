@@ -26,6 +26,8 @@ The documentation includes:
 
 ## Contents
 
+- `warp_bubble_shape_catalog.tex`  
+  LaTeX source document with mathematical formulas, support size notes, and free parameters for each profile.
 - `scripts/`  
   Python scripts for plotting profiles, generating numeric data, computing support sizes, and exporting CSV.
 - `data/`  
@@ -120,6 +122,7 @@ pip install numpy matplotlib
 
 ```
 warp-bubble-shape-catalog/
+├── warp_bubble_shape_catalog.tex     # LaTeX source document
 ├── data/                             # Generated data and plots
 │   ├── profiles.npz                  # Binary profile data
 │   ├── profile_data.csv              # CSV profile data
@@ -159,6 +162,42 @@ warp-bubble-shape-catalog/
    - `data/profile_data.csv` (CSV data)  
    - `data/plots/profiles.png` (high-resolution visualization)
    - `docs/assets/images/profiles.png` (visualization for Jekyll site)
+
+## Building the LaTeX Document
+
+The original LaTeX source document is preserved for reference. To build the PDF:
+
+```bash
+pdflatex warp_bubble_shape_catalog.tex
+```
+
+This generates `warp_bubble_shape_catalog.pdf` with the mathematical catalog in traditional document format.
+
+## Troubleshooting
+
+### GitHub Pages Image Display
+
+If images don't appear on the GitHub Pages site, you may need to:
+
+1. **Verify file permissions**: Make sure all image files have the proper permissions to be served
+2. **Check file paths**: Ensure Jekyll configuration has correct `baseurl` and image paths
+3. **Force rebuild**: In the GitHub repository settings under Pages, trigger a rebuild
+4. **Use relative paths**: Try with both `/assets/images/profiles.png` and `assets/images/profiles.png`
+5. **Commit directly**: Add the images directly through the GitHub interface
+
+### Interactive Plot Display
+
+If interactive plotting fails with an error about missing Qt5 or Tk:
+
+```bash
+pip install PyQt5
+```
+
+Or use the non-interactive mode:
+
+```bash
+python scripts/plot_profiles.py -s
+```
 
 ## License
 

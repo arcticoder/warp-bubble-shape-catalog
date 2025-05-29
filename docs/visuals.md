@@ -12,7 +12,11 @@ This page displays generated plots and visualizations of the warp-bubble shape p
 
 The following plot shows the two main warp-bubble shape profiles implemented in this catalog:
 
-<img src="assets/images/profiles.png" alt="Comparison of Alcubierre and Natário warp-bubble shape profiles" title="Warp-Bubble Shape Profiles" style="max-width: 100%; height: auto;" />
+<img src="{{ site.baseurl }}/assets/images/profiles.png" alt="Comparison of Alcubierre and Natário warp-bubble shape profiles" title="Warp-Bubble Shape Profiles" style="max-width: 100%; height: auto;" />
+
+*If the image above doesn't load, try these alternatives:*
+- [Direct link to image in repository](https://github.com/arcticoder/warp-bubble-shape-catalog/blob/main/docs/assets/images/profiles.png)
+- [Raw image file](https://raw.githubusercontent.com/arcticoder/warp-bubble-shape-catalog/main/docs/assets/images/profiles.png)
 
 *Figure 1: Comparison of Alcubierre and Natário warp-bubble shape profiles. The Alcubierre profile (R=1, σ=10) shows a localized peak around r=1, while the Natário Gaussian (α=1) exhibits a central peak at r=0 with exponential decay.*
 
@@ -96,7 +100,7 @@ The visualization is generated using the `plot_profiles.py` script with the foll
 - **Format**: High-resolution PNG (300 DPI)
 - **Styling**: Professional publication-ready formatting
 - **Output Locations**:
-  - `data/plots/profiles.png` (for LaTeX document inclusion)
+  - `data/plots/profiles.png` (high-resolution visualization)
   - `docs/assets/images/profiles.png` (for Jekyll site display)
 
 ### Reproducibility

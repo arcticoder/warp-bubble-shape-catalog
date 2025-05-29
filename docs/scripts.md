@@ -72,7 +72,7 @@ The interactive display uses matplotlib backends (Qt5Agg or TkAgg) and allows yo
 
 ### Output
 - **Files**: 
-  - `data/plots/profiles.png` (for LaTeX document inclusion)
+  - `data/plots/profiles.png` (high-resolution visualization)
   - `docs/assets/images/profiles.png` (for Jekyll site display)
 - **Format**: High-resolution PNG (300 DPI)
 - **Size**: Optimized for inclusion in documents and web display

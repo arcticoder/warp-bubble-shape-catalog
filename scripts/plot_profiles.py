@@ -7,18 +7,31 @@ import matplotlib
 import sys
 
 # Set backend based on whether interactive display is needed
+interactive_backend_available = False
 if __name__ == '__main__':
     if len(sys.argv) > 1 and ('--save-only' in sys.argv or '-s' in sys.argv):
         matplotlib.use('Agg')  # Non-interactive backend for save-only mode
     else:
         # Try different backends for interactive display
-        try:
-            matplotlib.use('Qt5Agg')  # Try Qt backend first
-        except ImportError:
+        for backend in ['TkAgg', 'Qt5Agg']:
             try:
-                matplotlib.use('TkAgg')  # Fall back to Tk
+                # Test if we can import the backend
+                if backend == 'TkAgg':
+                    import tkinter
+                elif backend == 'Qt5Agg':
+                    import PyQt5
+                    
+                matplotlib.use(backend)
+                interactive_backend_available = True
+                break
             except ImportError:
-                matplotlib.use('Agg')  # Use non-interactive as last resort
+                continue
+        
+        if not interactive_backend_available:
+            matplotlib.use('Agg')
+            print("Warning: No interactive backend available. Interactive display disabled.")
+            print("Install tkinter (usually included with Python) or PyQt5 for interactive display:")
+            print("  pip install PyQt5")
 
 import matplotlib.pyplot as plt
 
@@ -34,6 +47,9 @@ def plot_profiles(r_max=3.0, num=500, save_plot=True, show_plot=False):
         'Alcubierre (R=1, σ=10)': alcubierre_profile(r, R=1.0, sigma=10.0),
         'Natário Gaussian (α=1)': nataro_gaussian(r, alpha=1.0),
     }
+    
+    # Create the plot
+    plt.figure(figsize=(10, 6))
     for label, values in profiles.items():
         plt.plot(r, values, label=label)
     plt.xlabel('r')
@@ -44,7 +60,7 @@ def plot_profiles(r_max=3.0, num=500, save_plot=True, show_plot=False):
     
     if save_plot:
         import os
-        # Save to data/plots for LaTeX document
+        # Save to data/plots for high-resolution visualization
         os.makedirs('../data/plots', exist_ok=True)
         plt.savefig('../data/plots/profiles.png', dpi=300, bbox_inches='tight')
         print("Plot saved to data/plots/profiles.png")
@@ -55,7 +71,17 @@ def plot_profiles(r_max=3.0, num=500, save_plot=True, show_plot=False):
         print("Plot also saved to docs/assets/images/profiles.png")
     
     if show_plot:
-        plt.show()
+        if not globals().get('interactive_backend_available', False):
+            print("Interactive display not available. Plot saved to file instead.")
+            print("To enable interactive display, install: pip install PyQt5")
+        else:
+            try:
+                plt.show()
+            except Exception as e:
+                print(f"Warning: Could not display plot interactively: {e}")
+                print("Plot was still generated successfully.")
+    
+    plt.close()  # Clean up the figure
 
 if __name__ == '__main__':
     import sys
@@ -63,11 +89,18 @@ if __name__ == '__main__':
     # Command line options
     if len(sys.argv) > 1:
         if '--interactive' in sys.argv or '-i' in sys.argv:
-            plot_profiles(show_plot=True, save_plot=False)
+            if interactive_backend_available:
+                plot_profiles(show_plot=True, save_plot=False)
+            else:
+                print("Interactive display not available. Use --save-only to generate plot file.")
+                plot_profiles(show_plot=False, save_plot=True)
         elif '--save-only' in sys.argv or '-s' in sys.argv:
             plot_profiles(show_plot=False, save_plot=True)
         elif '--both' in sys.argv or '-b' in sys.argv:
-            plot_profiles(show_plot=True, save_plot=True)
+            show_interactive = interactive_backend_available
+            if not show_interactive:
+                print("Interactive display not available. Saving plot only.")
+            plot_profiles(show_plot=show_interactive, save_plot=True)
         else:
             print("Usage:")
             print("  python plot_profiles.py           # Interactive + save (default)")
@@ -75,5 +108,9 @@ if __name__ == '__main__':
             print("  python plot_profiles.py -s        # Save only")
             print("  python plot_profiles.py -b        # Both interactive + save")
     else:
-        # Default: show interactively and save
-        plot_profiles(show_plot=True, save_plot=True)
+        # Default: show interactively and save (if interactive available)
+        show_interactive = interactive_backend_available
+        if not show_interactive:
+            print("Interactive display not available. Saving plot only.")
+            print("Install PyQt5 for interactive display: pip install PyQt5")
+        plot_profiles(show_plot=show_interactive, save_plot=True)
