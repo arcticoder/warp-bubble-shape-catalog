@@ -211,7 +211,6 @@ Thumbs.db
 
 # Visual Studio Code
 .vscode/
-*.code-workspace
 
 # PyCharm
 .idea/
