@@ -2,6 +2,18 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"name": "Warp Bubble QFT Framework",
+			"path": "../warp-bubble-qft"
+		},
+		{
+			"name": "Warp Core - Main",
+			"path": "../warp-core"
+		},
+		{
+			"name": "Warp Bubble Optimizer",
+			"path": "../warp-bubble-optimizer"
 		}
 	]
 }
