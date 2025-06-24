@@ -190,4 +190,4 @@ python scripts/plot_profiles.py -s
 
 ## License
 
-This project is in the public domain. Feel free to use, modify, and distribute as needed for research and educational purposes.
+The Unlicense
